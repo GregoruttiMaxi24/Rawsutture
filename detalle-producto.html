@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle del Producto</title>
+    <style>
+        body {
+    height: 100%;
+    background: linear-gradient(to bottom, #000000, #5f1328) no-repeat;
+    overflow-x: hidden;
+    color: #fff;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: block;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 0;
+    left: 0;
+    background-image: url('../imagenes/prueba.png');
+    background-size: contain;
+    background-position: top center;
+    background-repeat: repeat-x;
+    height: 35vh;
+}
+        .detalle-container {
+            background: #000000;
+            border-radius: 24px;
+            max-width: 400px;
+            max-height: 700px;
+            margin: 40px auto  ;
+            padding: 32px 24px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+            color: #ffffff;
+             letter-spacing: 0.1em;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 18px;
+        }
+        .detalle-info {
+            font-size: 1.1rem;
+            margin-bottom: 18px;
+        }
+        .volver-inicio {
+            display: block;
+            margin: 30px auto 0 auto;
+            max-width: 220px;
+            background: #5f1328;
+            color: #000000;
+            text-align: center;
+            border-radius: 20px;
+            padding: 14px 0;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        @media (max-width: 700px) {
+    .detalle-container {
+        max-width: 98vw;
+        padding: 18px 4vw;
+        margin: 18px auto;
+        border-radius: 14px;
+        box-sizing: border-box;
+    }
+    h1 {
+        font-size: 1.3rem;
+        margin-bottom: 14px;
+    }
+    .detalle-info {
+        font-size: 1rem;
+        margin-bottom: 14px;
+    }
+    .detalle-info img {
+        max-width: 90vw !important;
+        height: auto !important;
+        margin-bottom: 12px !important;
+    }
+    .volver-inicio,
+    a[href="../index.html"] {
+        max-width: 98vw !important;
+        font-size: 1rem !important;
+        padding: 10px 0 !important;
+        border-radius: 14px !important;
+        margin-top: 18px !important;
+    }
+}
+    </style>
+</head>
+<body>
+    <header></header>
+    <div class="detalle-container">
+        <h1 id="nombre-producto"></h1>
+        <div class="detalle-info" id="detalle-info"></div>
+        <a href="../index.html" style="display:block; margin:30px auto 0 auto; max-width:220px; background:#5f1328; color:#fff; text-align:center; border-radius:20px; padding:14px 0; text-decoration:none; font-weight:bold;">Volver al inicio</a>
+    </div>
+    <script>
+        // Simulación de detalles por producto
+        const detalles = {
+            "Collar Péndulo": {
+                Image: "../imagenes/pendulo.jpg",
+                medida: "36cm",
+                dije: "37.5cm"
+            },
+            "Collar Key": {
+                Image: "../imagenes/key.jpg",
+                medida: "33cm",
+                dije: "34.5cm"
+            },
+            "Collar Snake": {
+                Image: "../imagenes/chain.jpg",
+                medida: "32cm",
+                dije: "37cm"
+            },
+            "Collar Birdsword": {
+                Image: "../imagenes/birdsword.jpg",
+                medida: "32cm",
+                dije: "37cm"
+            } // Agrega más productos aquí
+        };
+
+        // Obtener nombre del producto de la URL
+        const params = new URLSearchParams(window.location.search);
+        const nombre = decodeURIComponent(params.get('nombre') || 'Producto');
+        document.getElementById('nombre-producto').textContent = nombre;
+
+        // Mostrar detalles
+        if (detalles[nombre]) {
+            const imgHtml = `<img src="${detalles[nombre].Image}" alt="${nombre}" style="width:100%;max-width:360px;display:block;margin:0 auto 18px auto;border-radius:14px;">`;
+            const infoHtml = `<strong>Cadena:</strong> ${detalles[nombre].medida}<br><strong>Total:</strong> ${detalles[nombre].dije}`;
+            document.getElementById('detalle-info').innerHTML = imgHtml + infoHtml;
+        } else {
+            document.getElementById('detalle-info').textContent = 'No hay detalles disponibles para este producto.';
+        }
+
+        // Abrir en nueva pestaña (código sugerido)
+        window.open('carrito/detalle-producto.html?nombre=' + nombre, '_blank');
+    </script>
+</body>
+</html>

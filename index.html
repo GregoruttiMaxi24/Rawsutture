@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raw-Sutture</title>
+    <link rel="stylesheet" href="diseño.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <h1>RawSutture</h1>
+        <div class="carrito">
+            🛒
+        </div>
+        
+    </header>
+    <main>
+    <div class="contenedor-cajas">
+        <div class="caja">
+            <div class="foto">
+                <img src="imagenes/pendulo.jpg" alt="tranquilidad" class="img-detalle" data-nombre="Collar Péndulo" >
+            </div>
+            <div class="nombre">Collar"Péndulo" <br>Precio: 15000$</div>
+            <button class="add-btn" data-precio="15000">Añadir</button>
+        </div>
+        <div class="caja">
+            <div class="foto">
+                 <img src="imagenes/key.jpg" alt="tranquilidad" class="img-detalle" data-nombre="Collar Key" >
+            </div>
+            <div class="nombre">Collar"Key" <br>Precio: 15000$</div>
+            <button class="add-btn" data-precio="15000">Añadir</button>
+        </div>
+        <div class="caja">
+            <div class="foto">
+                <img src="imagenes/chain.jpg" alt="tranquilidad" class="img-detalle" data-nombre="Collar Snake" >
+            </div>
+            <div class="nombre">Collar"Snake" <br>Precio: 15000$</div>
+            <button class="add-btn" data-precio="15000">Añadir</button>
+        </div>
+    </div>
+    <div class="contenedor-cajas">
+        <div class="caja">
+            <div class="foto">
+                <img src="imagenes/birdsword.jpg" alt="birdsword" class="img-detalle" data-nombre="Collar Birdsword" >
+            </div>
+            <div class="nombre">Collar "Birdsword" <br>Precio: 15000$</div>
+            <button class="add-btn" data-precio="15000">Añadir</button>
+        </div>
+        <div class="caja">
+            <div class="foto">Proximamente</div>
+            <div class="nombre">elementoX</div>
+            <button class="add-btn" data-precio="0">Añadir</button>
+        </div>
+        <div class="caja">
+            <div class="foto">Proximamente</div>
+            <div class="nombre">elementoX</div>
+            <button class="add-btn" data-precio="0">Añadir</button>
+        </div>
+    </div>
+    </main>
+    <footer>
+        <div class="footer-info">
+            <p>
+                Recomendamos que se comuniquen con nosotros a través de Instagram o por correo electrónico en caso de que surjan dudas sobre nuestros productos o métodos de entrega.<br><br>
+                El tiempo estimado de respuesta es de hasta 60 minutos.
+            </p>
+            <div class="footer-social">
+                <span class="instagram"></span>
+                <a href="https://www.instagram.com/rawsutture_/" target="_blank">rawsutture_</a>
+                <i class="fa fa-envelope"></i>
+                <a href="mailto:rawsutture@gmail.com" target="_blank">rawsutture@gmail.com</a>
+            </div>
+        </div>
+    </footer>
+    <script src="carrito/carrito.js"></script>
+    <script>
+        // Abre la página enviar-carrito in una nueva pestaña al cargar la página
+        window.open('carrito/enviar-carrito.html');
+    </script>
+    <script>
+document.querySelectorAll('.img-detalle').forEach(img => {
+    img.style.cursor = "pointer";
+    img.addEventListener('click', function() {
+        const nombre = encodeURIComponent(this.dataset.nombre || this.alt);
+        window.location.href = `carrito/detalle-producto.html?nombre=${nombre}`;
+    });
+});
+</script>
+</body>
+</html>

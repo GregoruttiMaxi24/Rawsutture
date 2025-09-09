@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Enviar Carrito</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #000000, #5f1328);
+            color: #fff;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background: #181818;
+            border-radius: 30px;
+            max-width: 500px;
+            margin: 60px auto 30px auto;
+            padding: 40px 30px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+        }
+        header{
+    background-image: url('../imagenes/prueba.png');
+    background-size:contain;
+    background-position:center;
+    background-repeat:repeat-x;
+    height: 35vh;
+}
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 100;
+        }
+        ul {
+            margin-bottom: 30px;
+            padding-left: 20px;
+        }
+        .btn-mail {
+            display: block;
+            width: 100%;
+            background: #c4c4c4;
+            color: #222;
+            border: none;
+            border-radius: 20px;
+            padding: 16px 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: background 0.2s;
+        }
+        .btn-mail:hover {
+            background: #e0e0e0;
+        }
+        .vacio {
+            text-align: center;
+            color: #bbb;
+            margin-bottom: 30px;
+        }
+        footer {
+            background: #000;
+            border-radius: 40px;
+            margin: 40px auto 0 auto;
+            width: 95%;
+            padding: 40px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            color: #fff;
+            box-sizing: border-box;
+        }
+        .footer-form {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .footer-form h2 {
+            font-size: 2.5rem;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            margin-bottom: 30px;
+            font-weight: 100;
+        }
+        .footer-form input {
+            width: 350px;
+            padding: 14px 24px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 30px;
+            background: #c4c4c4;
+            color: #000;
+            font-size: 1.1rem;
+            font-family: inherit;
+        }
+        .footer-form button {
+            background: #c4c4c4;
+            color: #000;
+            border: none;
+            border-radius: 30px;
+            padding: 14px 38px;
+            font-size: 1.3rem;
+            font-family: inherit;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .footer-form button:hover {
+            background: #e0e0e0;
+        }
+        .footer-info {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            font-size: 1.3rem;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            margin-right: 20px;
+        }
+        .footer-info p {
+            margin-bottom: 30px;
+        }
+        .footer-social {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-top: 10px;
+        }
+        .footer-social i {
+            font-size: 2rem;
+            margin-right: 10px;
+        }
+        .footer-social span.instagram {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background-image: url('imagenes/instagram.png');
+            background-size: cover;
+            background-position: center;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .footer-social a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+        .footer-social a:hover {
+            text-decoration: underline;
+        }
+        #enviar-mail {
+            display: none;
+        }
+        .instagram {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-image: url('imagenes/igbuena.png');
+    background-size: cover;
+    background-position: center;
+    vertical-align: middle;
+}
+@media (max-width: 900px) {
+    footer {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        padding: 18px 2vw !important;
+        width: 98vw !important;
+        border-radius: 18px !important;
+        margin: 24px auto 0 auto !important;
+        box-sizing: border-box !important;
+    }
+    .footer-form {
+        margin-right: 0 !important;
+        margin-bottom: 18px !important;
+        width: 100% !important;
+        align-items: stretch !important;
+    }
+    .footer-form h2 {
+        font-size: 1.3rem !important;
+        margin-bottom: 18px !important;
+    }
+    .footer-form input {
+        width: 100% !important;
+        min-width: 0 !important;
+        font-size: 1rem !important;
+        padding: 10px 12px !important;
+    }
+    .footer-form button {
+        width: 100% !important;
+        font-size: 1rem !important;
+        padding: 10px 0 !important;
+    }
+    .footer-info {
+        font-size: 1rem !important;
+        width: 100% !important;
+        margin-right: 0 !important;
+        word-break: break-word !important;
+        margin-bottom: 10px !important;
+        box-sizing: border-box !important;
+        overflow-wrap: break-word !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+    .footer-info p {
+        font-size: 0.95rem !important;
+        word-break: break-word !important;
+        margin-bottom: 14px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    .footer-social {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 8px !important;
+        margin-top: 8px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    .footer-social .instagram {
+        width: 22px !important;
+        height: 22px !important;
+    }
+    .footer-social i {
+        font-size: 1.1rem !important;
+    }
+    .footer-social a {
+        font-size: 1rem !important;
+        word-break: break-all !important;
+        display: inline-block !important;
+        margin-bottom: 2px !important;
+        max-width: 100% !important;
+    }
+}
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header></header>
+    <div class="container">
+        <h1>Tu carrito</h1>
+        <p id="total-carrito" style="text-align:right; font-weight:bold; margin-bottom:20px;">Total: $0</p>
+        <ul id="lista-carrito"></ul>
+        <div id="mensaje-vacio" class="vacio" style="display:none;">El carrito está vacío.</div>
+        <a id="enviar-mail" class="btn-mail" href="#"></a>
+        <a id="enviar-gmail" class="btn-mail" href="https://mail.google.com/mail/?view=cm&fs=1&to=rawsutture@gmail.com&su=Pedido%20RawSutture&body=..." target="_blank">Enviar por Gmail</a>
+        <a href="../index.html" class="btn-mail" style="background:#5f1328; color:#fff; margin-top:18px;">Volver al inicio</a>
+    </div>
+    <footer>
+        <form class="footer-form" id="footer-contact-form">
+            <h2>Datos de contacto.</h2>
+            <input type="email" id="footer-correo" placeholder="correo electronico" required>
+            <input type="tel" id="footer-telefono" placeholder="numero telefonico" required>
+            <button type="submit">ENVIAR</button>
+        </form>
+        <div class="footer-info">
+            <p>
+                Recomendamos que se comuniquen con nosotros a través de Instagram o por correo electrónico en caso de que surjan dudas sobre nuestros productos o métodos de entrega.<br><br>
+                El tiempo estimado de respuesta es de hasta 60 minutos.
+            </p>
+            <div class="footer-social">
+                <span class="instagram"></span>
+                <a href="https://www.instagram.com/rawsutture_/" target="_blank">rawsutture_</a>
+                <i class="fa fa-envelope"></i>
+                <a href="mailto:rawsutture@gmail.com" target="_blank">rawsutture@gmail.com</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Recuperar carrito de localStorage
+        const carrito = JSON.parse(localStorage.getItem('carrito') || '[]');
+        const lista = document.getElementById('lista-carrito');
+        const btnMail = document.getElementById('enviar-mail');
+        const btnGmail = document.getElementById('enviar-gmail');
+        const mensajeVacio = document.getElementById('mensaje-vacio');
+        const totalCarrito = document.getElementById('total-carrito');
+
+        let total = 0;
+
+        if (carrito.length === 0) {
+            lista.style.display = 'none';
+            mensajeVacio.style.display = 'block';
+            btnMail.style.display = 'none';
+            btnGmail.style.display = 'none';
+            totalCarrito.textContent = "Total: $0";
+        } else {
+            carrito.forEach(producto => {
+                // Si tu carrito guarda objetos {nombre, precio}
+                if (typeof producto === "object" && producto.nombre && producto.precio) {
+                    const li = document.createElement('li');
+                    li.textContent = `${producto.nombre} - $${producto.precio}`;
+                    lista.appendChild(li);
+                    total += parseInt(producto.precio);
+                } else {
+                    // Si tu carrito guarda solo strings
+                    const li = document.createElement('li');
+                    li.textContent = producto;
+                    lista.appendChild(li);
+                }
+            });
+            totalCarrito.textContent = "Total: $" + total;
+            // Armar mailto
+            const asunto = encodeURIComponent('Pedido RawSutture');
+            const cuerpo = encodeURIComponent(
+                'Hola, quiero pedir los siguientes productos:\n\n' +
+                carrito.map(p => typeof p === "object" ? `${p.nombre} - $${p.precio}` : p).join('\n') +
+                `\n\nTotal: $${total}`
+            );
+            btnMail.href = `mailto:rawsutture@gmail.com?subject=${asunto}&body=${cuerpo}`;
+            btnGmail.href = `https://mail.google.com/mail/?view=cm&fs=1&to=rawsutture@gmail.com&su=${asunto}&body=${cuerpo}`;
+        }
+
+        // Enviar datos de contacto y carrito por mail
+        document.getElementById('footer-contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const correo = document.getElementById('footer-correo').value;
+            const telefono = document.getElementById('footer-telefono').value;
+            const asunto = encodeURIComponent('Consulta desde RawSutture');
+            const cuerpo = encodeURIComponent(
+                `Hola, me gustaría recibir información.\n\nCorreo: ${correo}\nTeléfono: ${telefono}`
+            );
+            window.location.href = `mailto:rawsutture@gmail.com?subject=${asunto}&body=${cuerpo}`;
+        });
+    </script>
+</body>
+</html>
